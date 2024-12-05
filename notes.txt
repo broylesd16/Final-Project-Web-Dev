@@ -1,0 +1,14 @@
+Have login page when new user is made a new set of tables for that user is made in the database so each user has a custom set of tables whenever 
+they log in
+
+
+projects other students did:
+    pokemon catalog center
+    web pets app
+    emotion tracker
+    quiz game
+    memory game -uncover tiles
+    dietrich exposition web app - dietrich in drag
+    recipe catalog app
+
+
