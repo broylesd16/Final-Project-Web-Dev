@@ -1,3 +1,132 @@
-h1 {
-    color: crimson
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.6;
+}
+
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 100px;
+    color: black;
+    text-align: left;
+}
+
+.header {
+    background-image: url(farm.jfif);
+    background-size: cover;
+    color: #333;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    text-align: center;
+    vertical-align: top;
+    flex-wrap: wrap;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+} 
+
+nav{
+    text-align: left;
+}
+
+.left{
+    flex: 1;
+    min-width: 500px;
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.right img {
+    min-width: 100px;   
+    max-width: 500px;
+    
+}
+
+hr{
+    background-color: black;
+    height: 2px;
+    border: none;
+}
+
+.main_page{
+    background-color: #4E9B66 ;
+    color: #F5F5DC;
+    padding: 20px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    text-align: center;
+    vertical-align: top;
+    flex-wrap: wrap;
+}
+
+.welcome{
+        padding: 20px;
+}
+
+
+.right_text {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+}
+
+.left_image{
+    flex: 1;
+}
+
+.left_image img {
+    max-width: 300px;
+}
+
+.alt_main_page{
+    background-color: #E3D7C3;
+    color: black;
+    padding: 20px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+main{
+    background-color: #333;
+    padding: 20px;
+}
+
+
+footer {
+    background-color: #8B4513;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    
+}
+
+a{
+    color: wheat;
 }
