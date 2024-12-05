@@ -16,14 +16,10 @@
         
         <div class="left">
         <h1>GoatGear Galore</h1>
-        <nav><p></p>
-            <a href="main.html">Home</a> |
-            <a href="about.html">About Us</a>
-        </p></nav>
         </div>
         
         <div class="right">
-            <img src="Goat Merch.png">
+            <img src="Designer.jpeg">
         </div>
     </section>
 
