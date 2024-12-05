@@ -16,37 +16,29 @@ h1{
 }
 
 .header {
-    background-size: cover;
-    color: #333;
-    justify-content: space-between; 
-    align-items: center; 
-    text-align: center;
-    vertical-align: top;
-    flex-wrap: wrap;
-    padding-left: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-} 
-
-.left{
-    flex: 1;
-    min-width: 500px;
+    display: flex; /* Use Flexbox to align items horizontally */
+    justify-content: space-between; /* Create space between left and right sections */
+    align-items: center; /* Align items vertically in the center */
+    padding: 20px; /* Add padding for spacing */
 }
 
-.right{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.left {
+    max-width: 60%; /* Ensure left side has enough space */
+}
+
+.left h1 {
+    margin: 0; /* Remove default margin for better alignment */
 }
 
 .right img {
-    min-width: 100px;   
-    max-width: 500px;
-    
+    max-width: 300px; /* Limit the image width */
+    border-radius: 15px; /* Apply rounded edges */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for better aesthetics */
+}
+
+.right {
+    max-width: 40%; /* Restrict the right section width */
+    text-align: center; /* Center the image in its container */
 }
 
 hr{
