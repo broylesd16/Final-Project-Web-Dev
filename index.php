@@ -7,7 +7,13 @@
 </head>
 <body>
     <main>
+    <section class="flex-container">
+        <div class="box box-1">1</div>
+        <div class="box box-2">2</div>
+        <div class="box box-3">3</div>
+    </section>
     <section class = "header">
+        
         <div class="left">
         <h1>GoatGear Galore</h1>
         <nav><p></p>

@@ -130,3 +130,47 @@ footer {
 a{
     color: wheat;
 }
+
+.flex-container {
+    display: flex; 
+    justify-content: space-around; 
+        /* flex-start, flex-end, center, space-around, space-between, space-evenly */
+    align-items: center; 
+        /* flex-start, flex-end, center */
+    /*flex-direction: column  */
+    flex-wrap: wrap;
+    /* align-content will align wrapped around items */
+    
+    padding: 5px;
+    background-color: #aaaaaa;
+}
+
+/* General box styles */
+.box {
+    width: 100px;
+    height: 50px;
+    display: flex; /* Center the number inside the box */
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem; /* Large font size for numbers */
+    color: white; /* White text for contrast */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Individual background colors for each box */
+.box-1 {
+    flex: 1;    
+    background-color: red; /* Primary color red */
+}
+
+.box-2 {
+    flex: 1;
+    background-color: blue; /* Primary color blue */
+}
+
+.box-3 {
+    flex: 1;
+    background-color: yellow; /* Primary color yellow */
+    color: black; /* Change text color for better contrast on yellow */
+    /*align-self: flex-end;*/
+}
