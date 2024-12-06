@@ -1,9 +1,9 @@
 <?php
 // config.php - Database configuration
 $host = 'localhost'; 
-$dbname = 'books3'; 
-$user = 'mark'; 
-$pass = 'mark';
+$dbname = 'final'; 
+$user = 'root'; 
+$pass = 'mysql';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";

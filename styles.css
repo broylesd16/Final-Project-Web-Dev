@@ -30,6 +30,23 @@ h1{
     padding-left: 30px;
 }
 
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    text-align: center;
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded edges */
+    border: none; /* Optional: no border */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
 .left h1 {
     margin: 0; /* Remove default margin for better alignment */
 }

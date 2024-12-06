@@ -20,6 +20,7 @@
         <br>
         <br>
         <p>Get started today!</p>
+        <a href="login.php" class = "button">Get Started</a>
         </div>
         
         <div class="right">
@@ -34,6 +35,7 @@
                 <hr>
             </div>
             <div class ="right_text">
+            <a href="login.php" class = "button">Get Started</a>
                 <p>Browse our selection of merchandise that is sure to make you the drippiest person on your street</p>
             </div>
             <div class ="left_image">
