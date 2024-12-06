@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Goat Gear Galore</title>
+    <title>GoatKeeper</title>
     <link rel="stylesheet" href="styles.css?v=1.1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
@@ -15,8 +15,9 @@
     <section class = "header">
         
         <div class="left">
-        <h1>GoatGear Galore</h1>
-        <p>lorem"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        <h1>GoatKeeper</h1>
+        <p>Your ultimate solution for managing your herd with ease and efficiency. Track names, ages, breeds, and more all in one place. </p>
+        <p>Get started today!</p>
         </div>
         
         <div class="right">
