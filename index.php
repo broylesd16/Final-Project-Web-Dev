@@ -31,9 +31,17 @@
 
     
     <section class="info-container">
-        <div class="info info-1">1</div>
-        <div class="info info-2">2</div>
-        <div class="info info-3">3</div>
+        <div class="info info-1">
+            <h5>Sign Up</h5>
+            <br>
+            <p></p>
+        </div>
+        <div class="info info-2">
+            <h5>Add Goats</h5>
+        </div>
+        <div class="info info-3">
+            <h5>Manage Your Heard</h5>
+        </div>
     </section>
 
     <section class="alt_main_page">
