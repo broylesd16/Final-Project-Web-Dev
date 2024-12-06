@@ -15,12 +15,13 @@
     <section class = "header">
         
         <div class="left">
-        <h1>GoatKeeper</h1>
-        <p>Your ultimate solution for managing your herd with ease and efficiency. Track names, ages, breeds, and more all in one place. </p>
-        <br>
-        <br>
-        <p>Get started today!</p>
-        <a href="login.php" class = "button">Get Started</a>
+            <h1>GoatKeeper</h1>
+            <p>Your ultimate solution for managing your herd with ease and efficiency. Track names, ages, breeds, and more all in one place. </p>
+            <br>
+            <br>
+            <p>Get started today!</p>
+            <br>
+            <a href="login.php" class = "button">Get Started</a>
         </div>
         
         <div class="right">
@@ -35,7 +36,6 @@
                 <hr>
             </div>
             <div class ="right_text">
-            <a href="login.php" class = "button">Get Started</a>
                 <p>Browse our selection of merchandise that is sure to make you the drippiest person on your street</p>
             </div>
             <div class ="left_image">
