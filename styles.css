@@ -135,10 +135,6 @@ footer {
     
 }
 
-a{
-    color: wheat;
-}
-
 .flex-container {
     display: flex; 
     justify-content: space-around; 
