@@ -38,6 +38,7 @@
         </div>
         <div class="info info-2">
             <h5>Add Goats</h5>
+            <img src="add goats.jpeg" alt="Add Goats" style= "height: 300px">
         </div>
         <div class="info info-3">
             <h5>Manage Your Heard</h5>
