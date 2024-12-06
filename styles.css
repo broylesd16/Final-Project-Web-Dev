@@ -107,27 +107,25 @@ hr{
     flex-direction: column;
     align-items: center;
     font-size: 3rem; /* Large font size for numbers */
-    color: white; /* White text for contrast */
+    color: black; /* White text for contrast */
     border-radius: 10px; /* Rounded corners */
 }
 
 .info-1 {
     margin-right: 40px;
     flex: 1;    
-    background-color: #7A431D; /* Primary color red */
+    background-color: #7A431D; 
 }
 
 .info-2 {
     flex: 1;
-    background-color: blue; /* Primary color blue */
+    background-color: #7A431D; 
 }
 
 .info-3 {
     margin-left: 40px;
     flex: 1;
-    background-color: yellow; /* Primary color yellow */
-    color: black; /* Change text color for better contrast on yellow */
-    /*align-self: flex-end;*/
+    background-color: #7A431D; 
 }
 
 .right_text {
