@@ -37,6 +37,7 @@
             <p></p>
         </div>
         <div class="info info-2">
+            <br>
             <h5>Add Goats</h5>
             <img src="add goats.jpeg" alt="Add Goats" style= "height: 300px">
         </div>
