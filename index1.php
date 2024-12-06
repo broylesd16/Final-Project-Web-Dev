@@ -17,6 +17,8 @@
         <div class="left">
         <h1>GoatKeeper</h1>
         <p>Your ultimate solution for managing your herd with ease and efficiency. Track names, ages, breeds, and more all in one place. </p>
+        <br>
+        <br>
         <p>Get started today!</p>
         </div>
         
