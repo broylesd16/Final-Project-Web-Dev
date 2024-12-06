@@ -31,16 +31,9 @@
 
     
     <section class="main_page">
-        <div class = "welcome">
-            <h2>Welcome</h2>
-            <hr>
-        </div>
-        <div class ="right_text">
-            <p>Browse our selection of merchandise that is sure to make you the drippiest person on your street</p>
-        </div>
-        <div class ="left_image">
-            <img src="cartoonGoat.png" alt="cartoonGoat">
-        </div>
+        <div class="box box-1">1</div>
+        <div class="box box-2">2</div>
+        <div class="box box-3">3</div>
     </section>
 
     <section class="alt_main_page">

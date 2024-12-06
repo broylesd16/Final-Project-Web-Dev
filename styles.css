@@ -88,10 +88,33 @@ hr{
     flex-wrap: wrap;
 }
 
-.welcome{
-        padding: 20px;
+.info{
+    width: 100px;
+    height: 500px;
+    display: flex; /* Center the number inside the box */
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem; /* Large font size for numbers */
+    color: white; /* White text for contrast */
+    border-radius: 10px; /* Rounded corners */
 }
 
+.info-1 {
+    flex: 1;    
+    background-color: green; /* Primary color red */
+}
+
+.info-2 {
+    flex: 1;
+    background-color: blue; /* Primary color blue */
+}
+
+.info-3 {
+    flex: 1;
+    background-color: yellow; /* Primary color yellow */
+    color: black; /* Change text color for better contrast on yellow */
+    /*align-self: flex-end;*/
+}
 
 .right_text {
     flex: 1;
