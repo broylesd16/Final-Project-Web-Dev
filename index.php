@@ -30,10 +30,10 @@
     </section>
 
     
-    <section class="main_page">
-        <div class="box box-1">1</div>
-        <div class="box box-2">2</div>
-        <div class="box box-3">3</div>
+    <section class="info-container">
+        <div class="info info-1">1</div>
+        <div class="info info-2">2</div>
+        <div class="info info-3">3</div>
     </section>
 
     <section class="alt_main_page">

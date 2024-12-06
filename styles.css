@@ -88,6 +88,18 @@ hr{
     flex-wrap: wrap;
 }
 
+.info-container {
+    display: flex; 
+    justify-content: space-around; 
+        /* flex-start, flex-end, center, space-around, space-between, space-evenly */
+    align-items: center; 
+        /* flex-start, flex-end, center */
+    /*flex-direction: column  */
+    flex-wrap: wrap;
+    /* align-content will align wrapped around items */
+    padding: 100px;
+}
+
 .info{
     width: 100px;
     height: 500px;
@@ -100,6 +112,7 @@ hr{
 }
 
 .info-1 {
+    margin-right: 40px;
     flex: 1;    
     background-color: green; /* Primary color red */
 }
@@ -110,6 +123,7 @@ hr{
 }
 
 .info-3 {
+    margin-left: 40px;
     flex: 1;
     background-color: yellow; /* Primary color yellow */
     color: black; /* Change text color for better contrast on yellow */
@@ -169,7 +183,6 @@ footer {
     /* align-content will align wrapped around items */
     padding: 5px;
     background-color: wheat;
-    
 }
 
 /* General box styles */
