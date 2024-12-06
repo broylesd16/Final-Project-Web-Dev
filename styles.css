@@ -88,6 +88,10 @@ hr{
     flex-wrap: wrap;
 }
 
+h5 {
+    margin: 0; /* Remove default margins */
+}
+
 .info-container {
     display: flex; 
     justify-content: space-around; 
