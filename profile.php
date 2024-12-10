@@ -40,35 +40,42 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 
 // Handle form submissions
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['goat_name']) && isset($_POST['age']) && isset($_POST['breed']) && isset($_POST['coat_color'])) {
+    if (
+        isset($_POST['goat_name']) && isset($_POST['age']) &&
+        isset($_POST['breed']) && isset($_POST['coat_color']) &&
+        isset($_POST['field']) && isset($_FILES['image'])
+    ) {
         // Insert new entry
         $goat_name = htmlspecialchars($_POST['goat_name']);
         $age = htmlspecialchars($_POST['age']);
         $breed = htmlspecialchars($_POST['breed']);
         $coat_color = htmlspecialchars($_POST['coat_color']);
-        
-        $insert_sql = 'INSERT INTO books (goat_name, age, breed, coat_color) VALUES (:goat_name, :age, :breed, :coat_color)';
+        $field = htmlspecialchars($_POST['field']);
+
+        // Handle image upload
+        $image = file_get_contents($_FILES['image']['tmp_name']); // Get binary data
+        $image_type = $_FILES['image']['type']; // Get MIME type
+
+        $insert_sql = 'INSERT INTO goats (goat_name, age, breed, coat_color, field, image, image_type)
+                       VALUES (:goat_name, :age, :breed, :coat_color, :field, :image, :image_type)';
         $stmt_insert = $pdo->prepare($insert_sql);
-        $stmt_insert->execute(['goat_name' => $goat_name, 'age' => $age, 'breed' => $breed, 'coat_color' => $coat_color]);
-    } elseif (isset($_POST['delete_id'])) {
-        // Delete an entry
-        $delete_id = (int) $_POST['delete_id'];
-        
-        $delete_sql = 'DELETE FROM books WHERE id = :id';
-        $stmt_delete = $pdo->prepare($delete_sql);
-        $stmt_delete->execute(['id' => $delete_id]);
-    } elseif (isset($_POST['edit_id'])) {
-        $edit_id = (int) $_POST['edit_id'];
-        $edit_sql = "UPDATE `books` SET `coat_color` = 'yes' WHERE `books`.`id` = :id";
-        $stmt_edit = $pdo->prepare($edit_sql);
-        $stmt_edit->execute(['id' => $edit_id]);
+        $stmt_insert->execute([
+            'goat_name' => $goat_name,
+            'age' => $age,
+            'breed' => $breed,
+            'coat_color' => $coat_color,
+            'field' => $field,
+            'image' => $image,
+            'image_type' => $image_type
+        ]);
     }
 }
 
-// Get all books for main table
-$sql = 'SELECT id, goat_name, age, breed, coat_color FROM books';
+// Get all goats for main table
+$sql = 'SELECT id, goat_name, age, breed, coat_color, field, image_type FROM goats';
 $stmt = $pdo->query($sql);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -134,7 +141,7 @@ $stmt = $pdo->query($sql);
                             </tbody>
                         </table>
                     <?php else: ?>
-                        <p>No books found matching your search.</p>
+                        <p>No goats found matching your search.</p>
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
@@ -143,19 +150,20 @@ $stmt = $pdo->query($sql);
 
     <!-- Table section with container -->
     <div class="table-container">
-        <h2>All Books in Collection</h2>
+        <h2>All goats in Collection</h2>
         <table class="half-width-left-align">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>goat_name</th>
-                    <th>age</th>
-                    <th>breed</th>
-                    <th>Has Been Read?</th>
-                    <th>Read Book</th>
-                    <th>Remove Book From Collection</th>
-                </tr>
-            </thead>
+        <thead>
+    <tr>
+        <th>ID</th>
+        <th>Goat Name</th>
+        <th>Age</th>
+        <th>Breed</th>
+        <th>Coat Color</th>
+        <th>Field</th>
+        <th>Image</th>
+        <th>Actions</th>
+    </tr>
+        </thead>
             <tbody>
                 <?php while ($row = $stmt->fetch()): ?>
                 <tr>
@@ -164,18 +172,16 @@ $stmt = $pdo->query($sql);
                     <td><?php echo htmlspecialchars($row['age']); ?></td>
                     <td><?php echo htmlspecialchars($row['breed']); ?></td>
                     <td><?php echo htmlspecialchars($row['coat_color']); ?></td>
+                    <td><?php echo htmlspecialchars($row['field']); ?></td>
                     <td>
-                        <form action="index5.php" method="post" style="display:inline;">
-                            <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">
-                            <input type="submit" value="Read Book">
-                        </form>
+                        <?php if ($row['image_type']): ?>
+                            <img src="data:<?php echo $row['image_type']; ?>;base64,<?php echo base64_encode($row['image']); ?>" alt="Goat Image" style="width: 50px; height: 50px;">
+                        <?php else: ?>
+                            No Image
+                        <?php endif; ?>
                     </td>
-
                     <td>
-                        <form action="index5.php" method="post" style="display:inline;">
-                            <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
-                            <input type="submit" value="Remove Book From Collection ">
-                        </form>
+                        <!-- Add actions like edit/delete -->
                     </td>
                 </tr>
                 <?php endwhile; ?>
@@ -185,25 +191,35 @@ $stmt = $pdo->query($sql);
 
     <!-- Form section with container -->
     <div class="form-container">
-        <h2>Add a Book to your Collection</h2>
-        <form action="index5.php" method="post">
-            <label for="goat_name">goat_name:</label>
-            <input type="text" id="goat_name" name="goat_name" required>
-            <br><br>
-            <label for="age">age:</label>
-            <input type="text" id="age" name="age" required>
-            <br><br>
-            <label for="breed">breed:</label>
-            <input type="text" id="breed" name="breed" required>
-            <br><br>
-            <label for="coat_color">Read?:</label>
-            <input type="radio" id="yes" name="coat_color" value="yes">
-            <label for="yes">Yes</label>
-            <input type="radio" id="no" name="coat_color" value="no">
-            <label for="no">No</label>
-            <br><br>
-            <input type="submit" value="Add Book to Collection">
-        </form>
-    </div>
-</body>
-</html>
+    <h2>Add a Goat to Your Collection</h2>
+    <form action="index5.php" method="post" enctype="multipart/form-data">
+        <label for="goat_name">Goat Name:</label>
+        <input type="text" id="goat_name" name="goat_name" required>
+        <br><br>
+        
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" required>
+        <br><br>
+        
+        <label for="breed">Breed:</label>
+        <input type="text" id="breed" name="breed" required>
+        <br><br>
+        
+        <label for="coat_color">Coat Color:</label>
+        <input type="radio" id="yes" name="coat_color" value="yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="coat_color" value="no">
+        <label for="no">No</label>
+        <br><br>
+        
+        <label for="field">Field:</label>
+        <input type="text" id="field" name="field" required>
+        <br><br>
+        
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required>
+        <br><br>
+        
+        <input type="submit" value="Add Goat to Collection">
+    </form>
+</div>
