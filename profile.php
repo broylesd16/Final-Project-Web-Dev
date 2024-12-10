@@ -32,7 +32,7 @@ try {
 $search_results = null;
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     $search_term = '%' . $_GET['search'] . '%';
-    $search_sql = 'SELECT id, goat_name, age, publisher, is_read FROM books WHERE title LIKE :search';
+    $search_sql = 'SELECT id, goat_name, age, breed, coat_color, field, image FROM goats WHERE goat_name LIKE :search';
     $search_stmt = $pdo->prepare($search_sql);
     $search_stmt->execute(['search' => $search_term]);
     $search_results = $search_stmt->fetchAll();
@@ -40,16 +40,16 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 
 // Handle form submissions
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['author']) && isset($_POST['title']) && isset($_POST['publisher']) && isset($_POST['is_read'])) {
+    if (isset($_POST['goat_name']) && isset($_POST['age']) && isset($_POST['breed']) && isset($_POST['coat_color'])) {
         // Insert new entry
-        $author = htmlspecialchars($_POST['author']);
-        $title = htmlspecialchars($_POST['title']);
-        $publisher = htmlspecialchars($_POST['publisher']);
-        $is_read = htmlspecialchars($_POST['is_read']);
+        $goat_name = htmlspecialchars($_POST['goat_name']);
+        $age = htmlspecialchars($_POST['age']);
+        $breed = htmlspecialchars($_POST['breed']);
+        $coat_color = htmlspecialchars($_POST['coat_color']);
         
-        $insert_sql = 'INSERT INTO books (author, title, publisher, is_read) VALUES (:author, :title, :publisher, :is_read)';
+        $insert_sql = 'INSERT INTO books (goat_name, age, breed, coat_color) VALUES (:goat_name, :age, :breed, :coat_color)';
         $stmt_insert = $pdo->prepare($insert_sql);
-        $stmt_insert->execute(['author' => $author, 'title' => $title, 'publisher' => $publisher, 'is_read' => $is_read]);
+        $stmt_insert->execute(['goat_name' => $goat_name, 'age' => $age, 'breed' => $breed, 'coat_color' => $coat_color]);
     } elseif (isset($_POST['delete_id'])) {
         // Delete an entry
         $delete_id = (int) $_POST['delete_id'];
@@ -59,14 +59,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt_delete->execute(['id' => $delete_id]);
     } elseif (isset($_POST['edit_id'])) {
         $edit_id = (int) $_POST['edit_id'];
-        $edit_sql = "UPDATE `books` SET `is_read` = 'yes' WHERE `books`.`id` = :id";
+        $edit_sql = "UPDATE `books` SET `coat_color` = 'yes' WHERE `books`.`id` = :id";
         $stmt_edit = $pdo->prepare($edit_sql);
         $stmt_edit->execute(['id' => $edit_id]);
     }
 }
 
 // Get all books for main table
-$sql = 'SELECT id, author, title, publisher, is_read FROM books';
+$sql = 'SELECT id, goat_name, age, breed, coat_color FROM books';
 $stmt = $pdo->query($sql);
 ?>
 
@@ -87,7 +87,7 @@ $stmt = $pdo->query($sql);
         <div class="hero-search">
             <h2>Search for a Book in Collection</h2>
             <form action="" method="GET" class="search-form">
-                <label for="search">Search by Title:</label>
+                <label for="search">Search by age:</label>
                 <input type="text" id="search" name="search" required>
                 <input type="submit" value="Search">
             </form>
@@ -100,9 +100,9 @@ $stmt = $pdo->query($sql);
                             <thead>
                                 <tr>
                                 <th>ID</th>
-                                <th>Author</th>
-                                <th>Title</th>
-                                <th>Publisher</th>
+                                <th>goat_name</th>
+                                <th>age</th>
+                                <th>breed</th>
                                 <th>Has Been Read?</th>
                                 <th>Read Book</th>
                                 <th>Remove Book From Collection</th>
@@ -112,10 +112,10 @@ $stmt = $pdo->query($sql);
                                 <?php foreach ($search_results as $row): ?>
                                 <tr>
                                 <td><?php echo htmlspecialchars($row['id']); ?></td>
-                                <td><?php echo htmlspecialchars($row['author']); ?></td>
-                                <td><?php echo htmlspecialchars($row['title']); ?></td>
-                                <td><?php echo htmlspecialchars($row['publisher']); ?></td>
-                                <td><?php echo htmlspecialchars($row['is_read']); ?></td>
+                                <td><?php echo htmlspecialchars($row['goat_name']); ?></td>
+                                <td><?php echo htmlspecialchars($row['age']); ?></td>
+                                <td><?php echo htmlspecialchars($row['breed']); ?></td>
+                                <td><?php echo htmlspecialchars($row['coat_color']); ?></td>
                                 <td>
                                     <form action="index5.php" method="post" style="display:inline;">
                                         <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">
@@ -148,9 +148,9 @@ $stmt = $pdo->query($sql);
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Author</th>
-                    <th>Title</th>
-                    <th>Publisher</th>
+                    <th>goat_name</th>
+                    <th>age</th>
+                    <th>breed</th>
                     <th>Has Been Read?</th>
                     <th>Read Book</th>
                     <th>Remove Book From Collection</th>
@@ -160,10 +160,10 @@ $stmt = $pdo->query($sql);
                 <?php while ($row = $stmt->fetch()): ?>
                 <tr>
                     <td><?php echo htmlspecialchars($row['id']); ?></td>
-                    <td><?php echo htmlspecialchars($row['author']); ?></td>
-                    <td><?php echo htmlspecialchars($row['title']); ?></td>
-                    <td><?php echo htmlspecialchars($row['publisher']); ?></td>
-                    <td><?php echo htmlspecialchars($row['is_read']); ?></td>
+                    <td><?php echo htmlspecialchars($row['goat_name']); ?></td>
+                    <td><?php echo htmlspecialchars($row['age']); ?></td>
+                    <td><?php echo htmlspecialchars($row['breed']); ?></td>
+                    <td><?php echo htmlspecialchars($row['coat_color']); ?></td>
                     <td>
                         <form action="index5.php" method="post" style="display:inline;">
                             <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">
@@ -187,19 +187,19 @@ $stmt = $pdo->query($sql);
     <div class="form-container">
         <h2>Add a Book to your Collection</h2>
         <form action="index5.php" method="post">
-            <label for="author">Author:</label>
-            <input type="text" id="author" name="author" required>
+            <label for="goat_name">goat_name:</label>
+            <input type="text" id="goat_name" name="goat_name" required>
             <br><br>
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title" required>
+            <label for="age">age:</label>
+            <input type="text" id="age" name="age" required>
             <br><br>
-            <label for="publisher">Publisher:</label>
-            <input type="text" id="publisher" name="publisher" required>
+            <label for="breed">breed:</label>
+            <input type="text" id="breed" name="breed" required>
             <br><br>
-            <label for="is_read">Read?:</label>
-            <input type="radio" id="yes" name="is_read" value="yes">
+            <label for="coat_color">Read?:</label>
+            <input type="radio" id="yes" name="coat_color" value="yes">
             <label for="yes">Yes</label>
-            <input type="radio" id="no" name="is_read" value="no">
+            <input type="radio" id="no" name="coat_color" value="no">
             <label for="no">No</label>
             <br><br>
             <input type="submit" value="Add Book to Collection">
