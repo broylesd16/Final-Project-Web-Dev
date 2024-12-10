@@ -10,9 +10,9 @@ if (!is_logged_in()) {
 }
 
 $host = 'localhost'; 
-$dbname = 'books3'; 
-$user = 'mark'; 
-$pass = 'mark';
+$dbname = 'final'; 
+$user = 'root'; 
+$pass = 'mysql';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
@@ -32,7 +32,7 @@ try {
 $search_results = null;
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     $search_term = '%' . $_GET['search'] . '%';
-    $search_sql = 'SELECT id, author, title, publisher, is_read FROM books WHERE title LIKE :search';
+    $search_sql = 'SELECT id, goat_name, age, publisher, is_read FROM books WHERE title LIKE :search';
     $search_stmt = $pdo->prepare($search_sql);
     $search_stmt->execute(['search' => $search_term]);
     $search_results = $search_stmt->fetchAll();
