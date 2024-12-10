@@ -19,7 +19,7 @@
             <p>Your ultimate solution for managing your herd with ease and efficiency. Track names, ages, breeds, and more all in one place. </p>
             <br>
             <br>
-            <p>Get started today!</p>
+            <p>Ready to join the herd? Sign up now and get grazing!</p>
             <br>
             <a href="login.php" class = "button">Get Started</a>
         </div>
