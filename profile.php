@@ -39,8 +39,6 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 }
 
 // Handle form submissions
-<?php
-// Handle form submissions
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (
         isset($_POST['goat_name']) && isset($_POST['age']) &&
@@ -74,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Get all goats for main table
-$sql = 'SELECT id, goat_name, age, breed, coat_color, field, image_type FROM goats';
+$sql = 'SELECT goat_id, goat_name, age, breed, coat_color, field, image_type FROM goats';
 $stmt = $pdo->query($sql);
 ?>
 
@@ -109,7 +107,7 @@ $stmt = $pdo->query($sql);
                         <table>
                         <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>goat_id</th>
                             <th>Goat Name</th>
                             <th>Age</th>
                             <th>Breed</th>
@@ -122,7 +120,7 @@ $stmt = $pdo->query($sql);
                     <tbody>
                         <?php while ($row = $stmt->fetch()): ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($row['id']); ?></td>
+                            <td><?php echo htmlspecialchars($row['goat_id']); ?></td>
                             <td><?php echo htmlspecialchars($row['goat_name']); ?></td>
                             <td><?php echo htmlspecialchars($row['age']); ?></td>
                             <td><?php echo htmlspecialchars($row['breed']); ?></td>
@@ -142,7 +140,7 @@ $stmt = $pdo->query($sql);
                         <?php endwhile; ?>
                     </tbody>
                     
-                        </table>
+                    </table>
                     <?php else: ?>
                         <p>No goats found matching your search.</p>
                     <?php endif; ?>
@@ -195,7 +193,7 @@ $stmt = $pdo->query($sql);
     <!-- Form section with container -->
     <div class="form-container">
     <h2>Add a Goat to Your Collection</h2>
-    <form action="index5.php" method="post" enctype="multipart/form-data">
+    <form action="profile.php" method="post" enctype="multipart/form-data">
         <label for="goat_name">Goat Name:</label>
         <input type="text" id="goat_name" name="goat_name" required>
         <br><br>
