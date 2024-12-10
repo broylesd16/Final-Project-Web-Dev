@@ -32,7 +32,7 @@ try {
 $search_results = null;
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     $search_term = '%' . $_GET['search'] . '%';
-    $search_sql = 'SELECT goat_id, goat_name, age, breed, coat_color, field, image FROM goats WHERE goat_name LIKE :search';
+    $search_sql = 'SELECT goat_id, goat_name, age, breed, coat_color, field, image, image_type FROM goats';
     $search_stmt = $pdo->prepare($search_sql);
     $search_stmt->execute(['search' => $search_term]);
     $search_results = $search_stmt->fetchAll();
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Get all goats for main table
-$sql = 'SELECT goat_id, goat_name, age, breed, coat_color, field, image_type FROM goats';
+$sql = 'SELECT goat_id, goat_name, age, breed, coat_color, field, image, image_type FROM goats';
 $stmt = $pdo->query($sql);
 ?>
 
