@@ -46,11 +46,19 @@
     </section>
 
     <section class="alt_main_page">
-        <h2 style="text-align: center;">Goat Hoodie</h2>
+        <h2 style="text-align: center;">Features Overview</h2>
         <hr>
         <table>
             <tr><td><img src="hoodie.png" height="200"></td>
-            <td style="padding: 20px;">Stay cozy and stylish with our ultra-soft Goat Hoodie! Made from a premium blend of cotton and polyester, this hoodie features a playful goat graphic on the front, perfect for goat lovers. With a spacious front pocket for your essentials and a drawstring hood for added comfort, this hoodie is your go-to for chilly days. Available in various colors, it’s perfect for lounging, running errands, or hitting the trails. Get ready to show off your love for goats in style!</td></tr>
+            <td style="padding: 20px;">
+                <li>Track Your Goat’s Information: Easily manage and view detailed profiles for each goat, including name, age, breed, coat color, field, and more.</li>
+                <li>Add and Update Goat Records: Quickly add new goats to your collection or update existing entries with new details or images.</li>
+                <li>Upload Goat Photos: Keep track of your goats visually by uploading and storing photos for each goat.</li>
+                <li>Search and Filter Goats: Search for goats by name to find exactly what you're looking for with ease.</li>
+                <li>Organize Your Fields: Assign goats to specific fields and monitor their movement and activities across different locations.</li>
+                <li>User-Friendly Interface: Navigate the website with ease thanks to a clean and simple design made for both beginners and experienced goat owners.</li>
+                <li>Secure User Profiles: Keep your information safe with secure login and personalized user accounts.</li>
+            </td></tr>
         </table>
     </section>
 
