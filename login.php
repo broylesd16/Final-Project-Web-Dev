@@ -12,13 +12,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $password = $_POST['password'];
         
         if (login_user($pdo, $username, $password)) {
-            header('Location: profile.php');
+            $_SESSION['user_id'] = $username; 
+            header('Location: index.php');
             exit;
         } else {
             $error_message = 'Invalid username or password';
         }
     }
 }
+
 ?>
 
 <!DOCTYPE html>
