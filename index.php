@@ -29,7 +29,6 @@
         </div>
     </section>
 
-    
     <section class="info-container">
         <div class="info info-1">
             <h5>Sign Up</h5>
