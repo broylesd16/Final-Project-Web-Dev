@@ -77,7 +77,7 @@ $goats = $stmt->fetchAll();
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head style="background-color: lightblue;">
     <section class="navbar">
         <?php if (isset($_SESSION['user_id'])): ?>
             <!-- Show Logout button if user is logged in -->
@@ -94,11 +94,12 @@ $goats = $stmt->fetchAll();
     <title>Betty's Personal Goat Manager</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <!-- Hero Section -->
-    <div class="hero-section">
-        <h1 class="hero-title">Betty's Personal Goat Manager</h1>
-        <p class="hero-subtitle">"Track your goat collection"</p>
+<body style="background-color: #333;">
+    <div class="header-section">
+        <h1>GoatKeeper Goat Manager</h1>
+        <hr>
+        <p>"Track your goat collection"</p>
+        <br>
         
         <!-- Search moved to hero section -->
         <div class="hero-search">
