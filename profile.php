@@ -9,6 +9,9 @@ if (!is_logged_in()) {
     exit;
 }
 
+// Get the logged-in user's ID
+$user_id = $_SESSION['user_id'];  // Assuming 'user_id' is stored in session when the user logs in
+
 $host = 'localhost'; 
 $dbname = 'final'; 
 $user = 'root'; 
@@ -26,16 +29,6 @@ try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (PDOException $e) {
     throw new PDOException($e->getMessage(), (int)$e->getCode());
-}
-
-// Handle book search
-$search_results = null;
-if (isset($_GET['search']) && !empty($_GET['search'])) {
-    $search_term = '%' . $_GET['search'] . '%';
-    $search_sql = 'SELECT goat_id, goat_name, age, breed, coat_color, field, image, image_type FROM goats WHERE goat_name LIKE :search';
-    $search_stmt = $pdo->prepare($search_sql);
-    $search_stmt->execute(['search' => $search_term]);
-    $search_results = $search_stmt->fetchAll();
 }
 
 // Handle form submissions
@@ -56,10 +49,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $image = file_get_contents($_FILES['image']['tmp_name']); // Get binary data
         $image_type = $_FILES['image']['type']; // Get MIME type
 
-        $insert_sql = 'INSERT INTO goats (goat_name, age, breed, coat_color, field, image, image_type)
-                       VALUES (:goat_name, :age, :breed, :coat_color, :field, :image, :image_type)';
+        // Insert the goat into the database with user_id
+        $insert_sql = 'INSERT INTO goats2 (id, goat_name, age, breed, coat_color, field, image, image_type)
+                       VALUES (:user_id, :goat_name, :age, :breed, :coat_color, :field, :image, :image_type)';
         $stmt_insert = $pdo->prepare($insert_sql);
         $stmt_insert->execute([
+            'user_id' => $user_id, // Store the logged-in user's ID
             'goat_name' => $goat_name,
             'age' => $age,
             'breed' => $breed,
@@ -74,8 +69,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Get all goats for main table
-$sql = 'SELECT goat_id, goat_name, age, breed, coat_color, field, image, image_type FROM goats';
-$stmt = $pdo->query($sql);
+$sql = 'SELECT goat_id, goat_name, age, breed, coat_color, field, image, image_type FROM goats2 WHERE id = :user_id';
+$stmt = $pdo->prepare($sql);
+$stmt->execute(['user_id' => $user_id]); // Only fetch goats associated with the logged-in user
+$goats = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>

@@ -11,8 +11,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $username = $_POST['username'];
         $password = $_POST['password'];
         
-        if (login_user($pdo, $username, $password)) {
-            $_SESSION['user_id'] = $username; 
+        // Attempt to log the user in
+        $user_id = login_user($pdo, $username, $password);
+        
+        if ($user_id) {
+            // Store user_id (from database) in session, not the username
+            $_SESSION['user_id'] = $user_id; 
             header('Location: index.php');
             exit;
         } else {
@@ -20,14 +24,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 }
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login - Betty's Book Banning</title>
+    <title>Login - Betty's Personal Goat Manager</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -50,5 +53,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
         <p>Don't have an account? <a href="register.php">Register here</a></p>
     </div>
-</body>     
-</html>     
+</body>
+</html>
