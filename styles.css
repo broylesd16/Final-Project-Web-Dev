@@ -26,6 +26,7 @@ h1{
 }
 
 .left {
+    padding-top: 100px;
     max-width: 40%; /* Ensure left side has enough space */
     padding-left: 30px;
 }
