@@ -33,10 +33,10 @@ if (session_status() === PHP_SESSION_NONE) {
             <p style="text-align: center; font-size: 22px;">To provide goat owners with an easy-to-use platform to manage their herd</p>
     </section>
 
-    <section class="alt_main_page">
-        <h1 style="text-align: center;">Features Overview</h1>
+    <section class="our-story">
+        <h1 style="text-align: center;">Our Story</h1>
         <hr>
-    
+        <p style="font-size: 22px;">Welcome to GoatKeeper, where passion meets precision in the world of goat management. Our journey began with a simple idea: to revolutionize the way goat farming is approached, ensuring that every goat receives the care and attention it deserves.</p>
     </section>
 
 
