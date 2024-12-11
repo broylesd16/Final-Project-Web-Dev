@@ -25,10 +25,22 @@ if (session_status() === PHP_SESSION_NONE) {
         <a href="profile.php" class="navbar-item">Profile</a>
         <a href="index.php" class="navbar-item">Main Page</a>
     </section>  
-    <section class = "about-header">
-        <h1 style="text-align: center;">About Us</h1>
-        <hr>
-        <p>Your ultimate solution for managing your herd with ease and efficiency. Track names, ages, breeds, and more all in one place. </p>
+    <section class = "header">
+        
+        <div class="left">
+            <h1>GoatKeeper</h1>
+            <hr>
+            <p>Your ultimate solution for managing your herd with ease and efficiency. Track names, ages, breeds, and more all in one place. </p>
+            <br>
+            <br>
+            <p>Ready to join the herd? Sign up now and get grazing!</p>
+            <br>
+            <a href="login.php" class = "button">Get Started</a>
+        </div>
+        
+        <div class="right">
+            <img src="Designer.jpeg">
+        </div>
     </section>
 
     <section class="info-container">

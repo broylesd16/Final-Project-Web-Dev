@@ -277,9 +277,6 @@ footer {
 
 .about-header {
     line-height: 1.6;
-    display: flex; /* Use Flexbox to align items horizontally */
-    justify-content: space-between; /* Create space between left and right sections */
-    align-items: center; /* Align items vertically in the center */
     padding: 20px; /* Add padding for spacing */
     background-color: wheat;
     padding-top: 100px;
