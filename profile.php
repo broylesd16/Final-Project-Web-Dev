@@ -207,7 +207,8 @@ $goats = $stmt->fetchAll();
                             <?php endif; ?>
                         </td>
                         <td>
-                            <!-- Add actions like edit/delete -->
+                            <a href="edit_goat.php?goat_id=<?php echo $row['goat_id']; ?>">Edit</a> | 
+                            <a href="delete_goat.php?goat_id=<?php echo $row['goat_id']; ?>" onclick="return confirm('Are you sure you want to delete this goat?');">Delete</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

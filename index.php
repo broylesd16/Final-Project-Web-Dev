@@ -24,7 +24,7 @@ if (session_status() === PHP_SESSION_NONE) {
         
         <a href="profile.php" class="navbar-item">Profile</a>
         <a href="index.php" class="navbar-item">Main Page</a>
-    </section>
+    </section>  
     <section class = "header">
         
         <div class="left">
