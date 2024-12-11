@@ -5,7 +5,6 @@ body, h1, h2, p, ul {
 
 body {
     font-family: 'Times New Roman', Times, serif;
-    line-height: 1.6;
 }
 
 h1{
@@ -16,6 +15,7 @@ h1{
 }
 
 .header {
+    line-height: 1.6;
     display: flex; /* Use Flexbox to align items horizontally */
     justify-content: space-between; /* Create space between left and right sections */
     align-items: center; /* Align items vertically in the center */
@@ -94,6 +94,7 @@ h5 {
 }
 
 .info-container {
+    line-height: 1.6;
     display: flex; 
     justify-content: space-around; 
         /* flex-start, flex-end, center, space-around, space-between, space-evenly */
