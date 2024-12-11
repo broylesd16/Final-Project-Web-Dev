@@ -32,7 +32,7 @@ try {
 $search_results = null;
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     $search_term = '%' . $_GET['search'] . '%';
-    $search_sql = 'SELECT goat_id, goat_name, age, breed, coat_color, field, image, image_type FROM goats';
+    $search_sql = 'SELECT goat_id, goat_name, age, breed, coat_color, field, image, image_type FROM goats WHERE age LIKE :search';
     $search_stmt = $pdo->prepare($search_sql);
     $search_stmt->execute(['search' => $search_term]);
     $search_results = $search_stmt->fetchAll();
@@ -76,26 +76,24 @@ $sql = 'SELECT goat_id, goat_name, age, breed, coat_color, field, image, image_t
 $stmt = $pdo->query($sql);
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Betty's Personal Book Manager</title>
+    <title>Betty's Personal Goat Manager</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Hero Section -->
     <div class="hero-section">
-        <h1 class="hero-title">Betty's Personal Book Manager</h1>
-        <p class="hero-subtitle">"Track your book collection"</p>
+        <h1 class="hero-title">Betty's Personal Goat Manager</h1>
+        <p class="hero-subtitle">"Track your goat collection"</p>
         
         <!-- Search moved to hero section -->
         <div class="hero-search">
-            <h2>Search for a Book in Collection</h2>
+            <h2>Search for a Goat by Age</h2>
             <form action="" method="GET" class="search-form">
-                <label for="search">Search by age:</label>
+                <label for="search">Search by Age:</label>
                 <input type="text" id="search" name="search" required>
                 <input type="submit" value="Search">
             </form>
@@ -105,42 +103,41 @@ $stmt = $pdo->query($sql);
                     <h3>Search Results</h3>
                     <?php if ($search_results && count($search_results) > 0): ?>
                         <table>
-                        <thead>
-                        <tr>
-                            <th>goat_id</th>
-                            <th>Goat Name</th>
-                            <th>Age</th>
-                            <th>Breed</th>
-                            <th>Coat Color</th>
-                            <th>Field</th>
-                            <th>Image</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php while ($row = $stmt->fetch()): ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($row['goat_id']); ?></td>
-                            <td><?php echo htmlspecialchars($row['goat_name']); ?></td>
-                            <td><?php echo htmlspecialchars($row['age']); ?></td>
-                            <td><?php echo htmlspecialchars($row['breed']); ?></td>
-                            <td><?php echo htmlspecialchars($row['coat_color']); ?></td>
-                            <td><?php echo htmlspecialchars($row['field']); ?></td>
-                            <td>
-                                <?php if ($row['image_type']): ?>
-                                    <img src="data:<?php echo $row['image_type']; ?>;base64,<?php echo base64_encode($row['image']); ?>" alt="Goat Image" style="width: 50px; height: 50px;">
-                                <?php else: ?>
-                                    No Image
-                                <?php endif; ?>
-                            </td>
-                            <td>
-                                <!-- Add actions like edit/delete -->
-                            </td>
-                        </tr>
-                        <?php endwhile; ?>
-                    </tbody>
-                    
-                    </table>
+                            <thead>
+                                <tr>
+                                    <th>Goat ID</th>
+                                    <th>Goat Name</th>
+                                    <th>Age</th>
+                                    <th>Breed</th>
+                                    <th>Coat Color</th>
+                                    <th>Field</th>
+                                    <th>Image</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($search_results as $row): ?>
+                                    <tr>
+                                        <td><?php echo htmlspecialchars($row['goat_id']); ?></td>
+                                        <td><?php echo htmlspecialchars($row['goat_name']); ?></td>
+                                        <td><?php echo htmlspecialchars($row['age']); ?></td>
+                                        <td><?php echo htmlspecialchars($row['breed']); ?></td>
+                                        <td><?php echo htmlspecialchars($row['coat_color']); ?></td>
+                                        <td><?php echo htmlspecialchars($row['field']); ?></td>
+                                        <td>
+                                            <?php if ($row['image_type']): ?>
+                                                <img src="data:<?php echo $row['image_type']; ?>;base64,<?php echo base64_encode($row['image']); ?>" alt="Goat Image" style="width: 50px; height: 50px;">
+                                            <?php else: ?>
+                                                No Image
+                                            <?php endif; ?>
+                                        </td>
+                                        <td>
+                                            <!-- Add actions like edit/delete -->
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
                     <?php else: ?>
                         <p>No goats found matching your search.</p>
                     <?php endif; ?>
@@ -151,40 +148,40 @@ $stmt = $pdo->query($sql);
 
     <!-- Table section with container -->
     <div class="table-container">
-        <h2>All goats in Collection</h2>
+        <h2>All Goats in Collection</h2>
         <table class="half-width-left-align">
-        <thead>
-    <tr>
-        <th>goat_id</th>
-        <th>Goat Name</th>
-        <th>Age</th>
-        <th>Breed</th>
-        <th>Coat Color</th>
-        <th>Field</th>
-        <th>Image</th>
-        <th>Actions</th>
-    </tr>
-        </thead>
+            <thead>
+                <tr>
+                    <th>Goat ID</th>
+                    <th>Goat Name</th>
+                    <th>Age</th>
+                    <th>Breed</th>
+                    <th>Coat Color</th>
+                    <th>Field</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
             <tbody>
                 <?php while ($row = $stmt->fetch()): ?>
-                <tr>
-                    <td><?php echo htmlspecialchars($row['goat_id']); ?></td>
-                    <td><?php echo htmlspecialchars($row['goat_name']); ?></td>
-                    <td><?php echo htmlspecialchars($row['age']); ?></td>
-                    <td><?php echo htmlspecialchars($row['breed']); ?></td>
-                    <td><?php echo htmlspecialchars($row['coat_color']); ?></td>
-                    <td><?php echo htmlspecialchars($row['field']); ?></td>
-                    <td>
-                        <?php if ($row['image']): ?>
-                            <img src="data:<?php echo $row['image']; ?>;base64,<?php echo base64_encode($row['image']); ?>" alt="Goat Image" style="width: 50px; height: 50px;">
-                        <?php else: ?>
-                            No Image
-                        <?php endif; ?>
-                    </td>
-                    <td>
-                        <!-- Add actions like edit/delete -->
-                    </td>
-                </tr>
+                    <tr>
+                        <td><?php echo htmlspecialchars($row['goat_id']); ?></td>
+                        <td><?php echo htmlspecialchars($row['goat_name']); ?></td>
+                        <td><?php echo htmlspecialchars($row['age']); ?></td>
+                        <td><?php echo htmlspecialchars($row['breed']); ?></td>
+                        <td><?php echo htmlspecialchars($row['coat_color']); ?></td>
+                        <td><?php echo htmlspecialchars($row['field']); ?></td>
+                        <td>
+                            <?php if ($row['image']): ?>
+                                <img src="data:<?php echo $row['image_type']; ?>;base64,<?php echo base64_encode($row['image']); ?>" alt="Goat Image" style="width: 50px; height: 50px;">
+                            <?php else: ?>
+                                No Image
+                            <?php endif; ?>
+                        </td>
+                        <td>
+                            <!-- Add actions like edit/delete -->
+                        </td>
+                    </tr>
                 <?php endwhile; ?>
             </tbody>
         </table>
@@ -192,36 +189,38 @@ $stmt = $pdo->query($sql);
 
     <!-- Form section with container -->
     <div class="form-container">
-    <h2>Add a Goat to Your Collection</h2>
-    <form action="profile.php" method="post" enctype="multipart/form-data">
-        <label for="goat_name">Goat Name:</label>
-        <input type="text" id="goat_name" name="goat_name" required>
-        <br><br>
-        
-        <label for="age">Age:</label>
-        <input type="text" id="age" name="age" required>
-        <br><br>
-        
-        <label for="breed">Breed:</label>
-        <input type="text" id="breed" name="breed" required>
-        <br><br>
-        
-        <label for="coat_color">Coat Color:</label>
-        <input type="radio" id="yes" name="coat_color" value="yes">
-        <label for="yes">Yes</label>
-        <input type="radio" id="no" name="coat_color" value="no">
-        <label for="no">No</label>
-        <br><br>
-        
-        <label for="field">Field:</label>
-        <input type="text" id="field" name="field" required>
-        <br><br>
-        
-        <label for="image">Image:</label>
-        <input type="file" id="image" name="image" accept="image/*" required>
-        <br><br>
-        
-        <input type="submit" value="Add Goat to Collection">
-    </form>
-</div>
+        <h2>Add a Goat to Your Collection</h2>
+        <form action="profile.php" method="post" enctype="multipart/form-data">
+            <label for="goat_name">Goat Name:</label>
+            <input type="text" id="goat_name" name="goat_name" required>
+            <br><br>
+            
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" required>
+            <br><br>
+            
+            <label for="breed">Breed:</label>
+            <input type="text" id="breed" name="breed" required>
+            <br><br>
+            
+            <label for="coat_color">Coat Color:</label>
+            <input type="radio" id="yes" name="coat_color" value="yes">
+            <label for="yes">Yes</label>
+            <input type="radio" id="no" name="coat_color" value="no">
+            <label for="no">No</label>
+            <br><br>
+            
+            <label for="field">Field:</label>
+            <input type="text" id="field" name="field" required>
+            <br><br>
+            
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+            <br><br>
+            
+            <input type="submit" value="Add Goat to Collection">
+        </form>
+    </div>
 
+</body>
+</html>
