@@ -8,9 +8,9 @@
 <body>
     <main>
     <section class="flex-container">
-        <div class="box box-1">1</div>
-        <div class="box box-2">2</div>
-        <div class="box box-3">3</div>
+        <a href="login.php" class="box box-1">Login</a>
+        <a href="profile.php" class="box box-2">Profile</a>
+        <a href="index.php" class="box box-3">Main Page</a>
     </section>
     <section class = "header">
         

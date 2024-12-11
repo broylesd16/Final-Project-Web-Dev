@@ -81,6 +81,11 @@ $stmt = $pdo->query($sql);
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <section class="flex-container">
+        <a href="login.php" class="box box-1">Login</a>
+        <a href="profile.php" class="box box-2">Profile</a>
+        <a href="index.php" class="box box-3">Main Page</a>
+    </section>
     <meta charset="UTF-8">
     <title>Betty's Personal Goat Manager</title>
     <link rel="stylesheet" href="styles.css">

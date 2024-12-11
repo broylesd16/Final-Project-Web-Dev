@@ -199,20 +199,47 @@ footer {
     border-radius: 10px; /* Rounded corners */
 }
 
-/* Individual background colors for each box */
-.box-1 {
-    flex: 1;    
-    background-color: red; /* Primary color red */
+/* Make the <a> tags behave like buttons */
+.flex-container a {
+    text-decoration: none; /* Remove underline */
+    display: flex; /* Keep the flex layout */
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem; /* Slightly smaller text for cleaner look */
+    color: white; /* White text */
+    border-radius: 8px; /* Rounded corners */
+    width: 200px; /* Fixed width for all buttons */
+    height: 60px; /* Fixed height for all buttons */
+    margin: 10px; /* Add some spacing between buttons */
+    background-color: #4CAF50; /* Green background color */
+    text-align: center; /* Center the text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for hover and active states */
 }
 
-.box-2 {
-    flex: 1;
-    background-color: blue; /* Primary color blue */
+.flex-container a:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+    transform: translateY(-3px); /* Slight raise effect */
 }
 
-.box-3 {
-    flex: 1;
-    background-color: yellow; /* Primary color yellow */
-    color: black; /* Change text color for better contrast on yellow */
-    /*align-self: flex-end;*/
+.flex-container a:active {
+    background-color: #388e3c; /* Even darker green when button is pressed */
+    transform: translateY(1px); /* Button presses down slightly */
 }
+
+/* Optional focus effect for accessibility */
+.flex-container a:focus {
+    outline: none; /* Remove default focus outline */
+    border: 2px solid #388e3c; /* Custom focus border */
+}
+.box {
+    width: 100px; /* Fixed width for each box */
+    height: 50px; /* Fixed height for each box */
+    display: flex; /* Center the number inside the box */
+    justify-content: center; /* Align children (text) horizontally in the center */
+    align-items: center; /* Align children (text) vertically in the center */
+    font-size: 3rem; /* Large font size for numbers */
+    color: white; /* White text for contrast */
+    border-radius: 10px; /* Rounded corners */
+}
+
