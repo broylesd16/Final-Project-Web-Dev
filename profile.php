@@ -159,7 +159,7 @@ $goats = $stmt->fetchAll();
     </div>
 
     <!-- Table section with container -->
-    <div class="table-container">
+    <div class="profile-table-container">
         <h2>All Goats in Collection</h2>
         <table class="half-width-left-align">
             <thead>
