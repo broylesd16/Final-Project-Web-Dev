@@ -46,18 +46,31 @@
     </section>
 
     <section class="alt_main_page">
-        <h2 style="text-align: center;">Features Overview</h2>
+        <h1 style="text-align: center;">Features Overview</h1>
         <hr>
         <table>
-            <tr><td><img src="hoodie.png" height="200"></td>
+            <tr><td><img src="goat.png" height="400"></td>
             <td style="padding: 20px;">
-                <li>Track Your Goat’s Information: Easily manage and view detailed profiles for each goat, including name, age, breed, coat color, field, and more.</li>
-                <li>Add and Update Goat Records: Quickly add new goats to your collection or update existing entries with new details or images.</li>
-                <li>Upload Goat Photos: Keep track of your goats visually by uploading and storing photos for each goat.</li>
-                <li>Search and Filter Goats: Search for goats by name to find exactly what you're looking for with ease.</li>
-                <li>Organize Your Fields: Assign goats to specific fields and monitor their movement and activities across different locations.</li>
-                <li>User-Friendly Interface: Navigate the website with ease thanks to a clean and simple design made for both beginners and experienced goat owners.</li>
-                <li>Secure User Profiles: Keep your information safe with secure login and personalized user accounts.</li>
+                <li><strong>Track Your Goat’s Information:</strong></li>
+                <p style="padding-left: 22px">Easily manage and view detailed profiles for each goat, including name, age, breed, coat color, field, and more.</p>
+                <br>
+                <li><strong>Add and Update Goat Records:</strong></li>
+                <p style="padding-left: 22px">Quickly add new goats to your collection or update existing entries with new details or images.</p>
+                <br>
+                <li><strong>Upload Goat Photos:</strong></li>
+                <p style="padding-left: 22px">Keep track of your goats visually by uploading and storing photos for each goat.</p>
+                <br>
+                <li><strong>Search and Filter Goats:</strong></li>
+                <p style="padding-left: 22px">Search for goats by name to find exactly what you're looking for with ease.</p>
+                <br>
+                <li><strong>Organize Your Fields:</strong></li>
+                <p style="padding-left: 22px">Assign goats to specific fields and monitor their movement and activities across different locations.</p>
+                <br>
+                <li><strong>User-Friendly Interface:</strong></li>
+                <p style="padding-left: 22px">Navigate the website with ease thanks to a clean and simple design made for both beginners and experienced goat owners.</p>
+                <br>
+                <li><strong>Secure User Profiles:</strong></li>
+                <p style="padding-left: 22px">Keep your information safe with secure login and personalized user accounts.</p>
             </td></tr>
         </table>
     </section>
