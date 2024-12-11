@@ -32,7 +32,7 @@ try {
 $search_results = null;
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     $search_term = '%' . $_GET['search'] . '%';
-    $search_sql = 'SELECT goat_id, goat_name, age, breed, coat_color, field, image, image_type FROM goats WHERE age LIKE :search';
+    $search_sql = 'SELECT goat_id, goat_name, age, breed, coat_color, field, image, image_type FROM goats WHERE goat_name LIKE :search';
     $search_stmt = $pdo->prepare($search_sql);
     $search_stmt->execute(['search' => $search_term]);
     $search_results = $search_stmt->fetchAll();
@@ -81,10 +81,10 @@ $stmt = $pdo->query($sql);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <section class="flex-container">
-        <a href="login.php" class="box box-1">Login</a>
-        <a href="profile.php" class="box box-2">Profile</a>
-        <a href="index.php" class="box box-3">Main Page</a>
+    <section class="navbar">
+        <a href="login.php" class="navbar-item">Login</a>
+        <a href="profile.php" class="navbar-item">Profile</a>
+        <a href="index.php" class="navbar-item">Main Page</a>
     </section>
     <meta charset="UTF-8">
     <title>Betty's Personal Goat Manager</title>
@@ -133,7 +133,7 @@ $stmt = $pdo->query($sql);
                                         <td><?php echo htmlspecialchars($row['field']); ?></td>
                                         <td>
                                             <?php if ($row['image_type']): ?>
-                                                <img src="data:<?php echo $row['image_type']; ?>;base64,<?php echo base64_encode($row['image']); ?>" alt="Goat Image" style="width: 1000px; height: 1000px;">
+                                                <img src="data:<?php echo $row['image_type']; ?>;base64,<?php echo base64_encode($row['image']); ?>" alt="Goat Image" style="height: 200px;">
                                             <?php else: ?>
                                                 No Image
                                             <?php endif; ?>
@@ -180,7 +180,7 @@ $stmt = $pdo->query($sql);
                         <td><?php echo htmlspecialchars($row['field']); ?></td>
                         <td>
                             <?php if ($row['image']): ?>
-                                <img src="data:<?php echo $row['image_type']; ?>;base64,<?php echo base64_encode($row['image']); ?>" alt="Goat Image" style="width: 50px; height: 50px;">
+                                <img src="data:<?php echo $row['image_type']; ?>;base64,<?php echo base64_encode($row['image']); ?>" alt="Goat Image" style=" height: 200px;">
                             <?php else: ?>
                                 No Image
                             <?php endif; ?>
