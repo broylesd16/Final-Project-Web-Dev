@@ -221,7 +221,7 @@ $goats = $stmt->fetchAll();
         <h2>Add a Goat to Your Collection</h2>
         <hr>
         <br>
-        <form action="profile.php" method="post" enctype="multipart/form-data">
+        <form style="background-color:#333;" action="profile.php" method="post" enctype="multipart/form-data">
             <label for="goat_name">Goat Name:</label>
             <input type="text" id="goat_name" name="goat_name" required>
             <br><br>

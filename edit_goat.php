@@ -111,7 +111,7 @@ if (isset($_GET['goat_id'])) {
     <link rel="stylesheet" href="styles2.css">
 </head>
 <body style="background-color: #333;">
-    <h1 style="text-align: center;">Edit Goat</h1>
+    <h1 style="text-align: center; color: white;">Edit Goat</h1>
     <form action="edit_goat.php?goat_id=<?php echo $goat['goat_id']; ?>" method="post" enctype="multipart/form-data">
         <label for="goat_name">Goat Name:</label>
         <input type="text" id="goat_name" name="goat_name" value="<?php echo htmlspecialchars($goat['goat_name']); ?>" required>
