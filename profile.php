@@ -10,7 +10,9 @@ if (!is_logged_in()) {
 }
 
 // Get the logged-in user's ID
+$_SESSION['user_id'] = $user_id;
 $user_id = $_SESSION['user_id'];  // Assuming 'user_id' is stored in session when the user logs in
+echo($user_id);
 
 $host = 'localhost'; 
 $dbname = 'final'; 
@@ -167,7 +169,7 @@ $goats = $stmt->fetchAll();
                 </tr>
             </thead>
             <tbody>
-                <?php while ($row = $stmt->fetch()): ?>
+                <?php foreach ($goats as $row): ?>
                     <tr>
                         <td><?php echo htmlspecialchars($row['goat_id']); ?></td>
                         <td><?php echo htmlspecialchars($row['goat_name']); ?></td>
@@ -186,10 +188,10 @@ $goats = $stmt->fetchAll();
                             <!-- Add actions like edit/delete -->
                         </td>
                     </tr>
-                <?php endwhile; ?>
+                <?php endforeach; ?>
             </tbody>
         </table>
-    </div>
+    </div>  
 
     <!-- Form section with container -->
     <div class="form-container">
