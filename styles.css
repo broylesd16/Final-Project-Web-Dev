@@ -77,15 +77,9 @@ hr{
     margin-bottom: 100px;
     margin-left: 50px;
     margin-right: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 100px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    text-align: center;
-    vertical-align: top;
-    flex-wrap: wrap;
 }
 
 h5 {

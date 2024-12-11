@@ -90,18 +90,18 @@ if (session_status() === PHP_SESSION_NONE) {
 
 
     <section class="main_page">
-        <h2 style="text-align: center;">Goat T-Shirt</h2>
+        <h1 style="text-align: center;">Goat News</h1>
         <hr>
         <table>
             <tr>
-            <td style="padding: 20px;">Celebrate your love for goats with our comfy Goat T-Shirt! Made from 100% breathable cotton, this tee features a whimsical goat illustration that’s sure to turn heads. Available in a variety of sizes, the classic fit makes it perfect for everyday wear. Pair it with your favorite jeans or shorts for a laid-back look that’s perfect for any occasion. Wear it to the farm, the beach, or your next gathering with friends, and let the world know you’re a proud goat fan!</td>
-            <td><img src="shirt.png" height="200"></td></tr>
+            <td style="font-size: 22px;">Website Creation Completed on 12/11/2024</td>
+            <td><img src="normalgoat.webp" height="100"></td></tr>
         </table>
     </section>
-
+<p>e</p>
     </main>
     <footer>
-        <p>Contact me at: <a href="mailto:broylesd16@mycu.concord.edu">broylesd16@mycu.concord.edu</a></p>
+        <p>Copyright: Goat Solutions LLC</p>
     </footer>
 </body>
 </html>
