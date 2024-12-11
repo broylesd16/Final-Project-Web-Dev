@@ -1,6 +1,4 @@
 <?php
-
-
 require_once 'auth.php';
 
 // Check if user is logged in
@@ -29,6 +27,24 @@ try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (PDOException $e) {
     throw new PDOException($e->getMessage(), (int)$e->getCode());
+}
+
+// Initialize $search_results
+$search_results = [];
+
+if (isset($_GET['search'])) {
+    $search_query = htmlspecialchars($_GET['search']);
+    
+    // Search for goats by name (adjusted for name search)
+    $sql_search = 'SELECT goat_id, goat_name, age, breed, coat_color, field, image, image_type 
+                   FROM goats2 
+                   WHERE id = :user_id AND goat_name LIKE :search_query';
+    $stmt_search = $pdo->prepare($sql_search);
+    $stmt_search->execute([
+        'user_id' => $user_id, 
+        'search_query' => "%" . $search_query . "%"  // Use wildcard for partial matching
+    ]);
+    $search_results = $stmt_search->fetchAll();
 }
 
 // Handle form submissions
@@ -92,7 +108,7 @@ $goats = $stmt->fetchAll();
     </section>
     <meta charset="UTF-8">
     <title>Betty's Personal Goat Manager</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles2.css">
 </head>
 <body style="background-color: #333;">
     <div class="header-section">
@@ -103,9 +119,9 @@ $goats = $stmt->fetchAll();
         
         <!-- Search moved to hero section -->
         <div class="hero-search">
-            <h2>Search for a Goat by Age</h2>
+            <h2>Search for a Goat by Name</h2>
             <form action="" method="GET" class="search-form">
-                <label for="search">Search by Age:</label>
+                <label for="search">Search by Name:</label>
                 <input type="text" id="search" name="search" required>
                 <input type="submit" value="Search">
             </form>
@@ -159,7 +175,7 @@ $goats = $stmt->fetchAll();
     </div>
 
     <!-- Table section with container -->
-    <div class="profile-table-container">
+    <div class="table-container">
         <h2>All Goats in Collection</h2>
         <table class="half-width-left-align">
             <thead>
@@ -233,3 +249,4 @@ $goats = $stmt->fetchAll();
 
 </body>
 </html>
+                                
