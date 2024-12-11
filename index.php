@@ -7,10 +7,10 @@
 </head>
 <body>
     <main>
-    <section class="flex-container">
-        <a href="login.php" class="box box-1">Login</a>
-        <a href="profile.php" class="box box-2">Profile</a>
-        <a href="index.php" class="box box-3">Main Page</a>
+    <section class="navbar">
+        <a href="login.php" class="navbar-item">Login</a>
+        <a href="profile.php" class="navbar-item">Profile</a>
+        <a href="index.php" class="navbar-item">Main Page</a>
     </section>
     <section class = "header">
         
