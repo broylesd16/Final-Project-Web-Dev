@@ -16,6 +16,7 @@
         
         <div class="left">
             <h1>GoatKeeper</h1>
+            <hr>
             <p>Your ultimate solution for managing your herd with ease and efficiency. Track names, ages, breeds, and more all in one place. </p>
             <br>
             <br>
@@ -32,16 +33,15 @@
     <section class="info-container">
         <div class="info info-1">
             <h5>Sign Up</h5>
-            <br>
-            <p></p>
+            <img src="sign up.jpeg" alt="Sign Up" style= "height: 412px">
         </div>
         <div class="info info-2">
-            <br>
             <h5>Add Goats</h5>
-            <img src="add goats.jpeg" alt="Add Goats" style= "height: 300px">
+            <img src="add goats.jpeg" alt="Add Goats" style= "height: 412px">
         </div>
         <div class="info info-3">
             <h5>Manage Your Heard</h5>
+            <img src="manage.jpeg" alt="Manage Goats" style= "height: 412px">
         </div>
     </section>
 
