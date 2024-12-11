@@ -216,3 +216,22 @@ footer {
     background-color: #388e3c; /* Even darker green when clicked */
     transform: translateY(2px); /* Pressed effect */
 }
+
+.form-container{
+    background-color: #4E9B66 ;
+    color: #F5F5DC;
+    padding: 20px;
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    text-align: center;
+    vertical-align: top;
+    flex-wrap: wrap;
+}

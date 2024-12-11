@@ -79,7 +79,14 @@ $goats = $stmt->fetchAll();
 <html lang="en">
 <head>
     <section class="navbar">
-        <a href="login.php" class="navbar-item">Login</a>
+        <?php if (isset($_SESSION['user_id'])): ?>
+            <!-- Show Logout button if user is logged in -->
+            <a href="logout.php" class="navbar-item">Logout</a>
+        <?php else: ?>
+            <!-- Show Login button if user is not logged in -->
+            <a href="login.php" class="navbar-item">Login</a>
+        <?php endif; ?>
+        
         <a href="profile.php" class="navbar-item">Profile</a>
         <a href="index.php" class="navbar-item">Main Page</a>
     </section>
