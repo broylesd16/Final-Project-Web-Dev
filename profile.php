@@ -185,7 +185,7 @@ $goats = $stmt->fetchAll();
                         <td><?php echo htmlspecialchars($row['field']); ?></td>
                         <td>
                             <?php if ($row['image']): ?>
-                                <img src="data:<?php echo $row['image_type']; ?>;base64,<?php echo base64_encode($row['image']); ?>" alt="Goat Image" style=" height: 200px;">
+                                <img src="data:<?php echo $row['image_type']; ?>;base64,<?php echo base64_encode($row['image']); ?>" alt="Goat Image">
                             <?php else: ?>
                                 No Image
                             <?php endif; ?>

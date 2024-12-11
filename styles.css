@@ -264,3 +264,81 @@ footer {
     padding-bottom: 100px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
+
+/* General Table Styling */
+.table-container {
+    margin: 20px auto;
+    padding: 54px;
+    max-width: 90%;
+    background-color: #fdfdfd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-container h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+}
+
+table thead {
+    background-color: #4CAF50; /* Header background color */
+    color: white;
+}
+
+table thead th {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid black; /* Gridlines */
+}
+
+table tbody tr {
+    background-color: black;
+    transition: background-color 0.3s ease;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: green; /* Alternating row color */
+}
+
+table tbody td {
+    padding: 10px;
+    border: 1px solid #ddd; /* Gridlines */
+    text-align: left;
+}
+
+table tbody img {
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+/* Button Styling (optional for future actions column) */
+table tbody td:last-child {
+    text-align: center;
+}
+
+.button {
+    background-color: #4CAF50; /* Green button color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
