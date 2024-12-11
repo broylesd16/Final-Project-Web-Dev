@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+
 require_once 'auth.php';
 
 // Check if user is logged in
@@ -10,9 +10,7 @@ if (!is_logged_in()) {
 }
 
 // Get the logged-in user's ID
-$_SESSION['user_id'] = $user_id;
 $user_id = $_SESSION['user_id'];  // Assuming 'user_id' is stored in session when the user logs in
-echo($user_id);
 
 $host = 'localhost'; 
 $dbname = 'final'; 

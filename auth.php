@@ -1,4 +1,5 @@
 <?php
+session_start();
 // auth.php - Authentication functions
 function register_user($pdo, $username, $password) {
     try {
@@ -23,10 +24,8 @@ function login_user($pdo, $username, $password) {
 
     // Check if the user exists and verify the password
     if ($user && password_verify($password, $user['password'])) {
-        // Start session and store user info in session variables
-        $_SESSION['user_id'] = $user['id'];         // Store user_id in session
-        $_SESSION['username'] = $user['username'];  // Optionally store the username
-        return true;  // Login successful
+        // Return the user ID (don't set session here—do it in login.php)
+        return $user['id'];
     }
 
     // Return false if login fails (invalid username or password)

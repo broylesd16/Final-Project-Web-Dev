@@ -1,6 +1,5 @@
 <?php
 // login.php - Login page
-session_start();
 require_once 'config.php';
 require_once 'auth.php';
 
@@ -10,13 +9,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['login'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        
+
         // Attempt to log the user in
         $user_id = login_user($pdo, $username, $password);
-        
+
         if ($user_id) {
             // Store user_id (from database) in session, not the username
-            $_SESSION['user_id'] = $user_id; 
+            $_SESSION['user_id'] = $user_id; // This should now correctly store the user's ID
             header('Location: index.php');
             exit;
         } else {
@@ -24,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 }
+
 ?>
 
 <!DOCTYPE html>
