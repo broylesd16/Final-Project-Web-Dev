@@ -9,7 +9,6 @@ if (session_status() === PHP_SESSION_NONE) {
 <header>
     <title>GoatKeeper</title>
     <link rel="stylesheet" href="styles.css?v=1.1">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </header>
 <body>
     <main>
