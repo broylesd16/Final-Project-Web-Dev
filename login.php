@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login - Betty's Personal Goat Manager</title>
+    <title>Login - GoatKeeper</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>

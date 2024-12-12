@@ -107,7 +107,7 @@ $goats = $stmt->fetchAll();
         <a href="index.php" class="navbar-item">Main Page</a>
     </section>
     <meta charset="UTF-8">
-    <title>Betty's Personal Goat Manager</title>
+    <title>Goatkeeper Personal Goat Manager</title>
     <link rel="stylesheet" href="styles2.css">
 </head>
 <body style="background-color: #333;">
