@@ -102,7 +102,7 @@ $goats = $stmt->fetchAll();
             <!-- Show Login button if user is not logged in -->
             <a href="login.php" class="navbar-item">Login</a>
         <?php endif; ?>
-        
+        <a href="about.php" class="navbar-item">About</a>
         <a href="profile.php" class="navbar-item">Profile</a>
         <a href="index.php" class="navbar-item">Main Page</a>
     </section>

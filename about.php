@@ -37,16 +37,31 @@ if (session_status() === PHP_SESSION_NONE) {
         <h1 style="text-align: center;">Our Story</h1>
         <hr>
         <p style="font-size: 22px;">Welcome to GoatKeeper, where passion meets precision in the world of goat management. Our journey began with a simple idea: to revolutionize the way goat farming is approached, ensuring that every goat receives the care and attention it deserves.</p>
+        <br>
+        <p style="font-size: 22px;">At GoatKeeper, we believe that successful goat farming starts with understanding the unique needs of each goat. Our vision is to provide farmers with the tools, knowledge, and support they need to manage their herds effectively and humanely. We are committed to promoting sustainable farming practices that benefit both the goats and the environment.</p>
     </section>
 
 
-    <section class="main_page">
-        <h1 style="text-align: center;">Goat News</h1>
+    <section class="alt_main_page">
+        <h1 style="text-align: center;">Our Approach</h1>
         <hr>
         <table>
-            <tr>
-            <td style="font-size: 22px;">Website Creation Completed on 12/11/2024</td>
-            <td><img src="normalgoat.webp" height="100"></td></tr>
+            <td style="padding: 20px;">
+                <h2 style="padding-left: 22px">We combine traditional farming wisdom with modern technology to offer comprehensive goat management solutions. Our services include:</h2>
+                <br>
+                <li><strong>Add and Update Goat Records:</strong></li>
+                <p style="padding-left: 22px">Quickly add new goats to your collection or update existing entries with new details or images.</p>
+                <br>
+                <li><strong>Upload Goat Photos:</strong></li>
+                <p style="padding-left: 22px">Keep track of your goats visually by uploading and storing photos for each goat.</p>
+                <br>
+                <li><strong>Search and Filter Goats:</strong></li>
+                <p style="padding-left: 22px">Search for goats by name to find exactly what you're looking for with ease.</p>
+                <br>
+                <li><strong>Training and Education:</strong></li>
+                <p style="padding-left: 22px">Workshops and resources to help farmers stay informed about the latest in goat care and management.</p>
+                <br>
+            </td></tr>
         </table>
     </section>
 <p>e</p>
