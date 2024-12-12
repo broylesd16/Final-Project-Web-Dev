@@ -33,12 +33,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Login - GoatKeeper</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body style = "background-color:#333">
     <div class="auth-container">
         <h1>Login</h1>
+        <hr>
         <?php if ($error_message): ?>
             <div class="error"><?php echo htmlspecialchars($error_message); ?></div>
         <?php endif; ?>
+        <br>
         
         <form method="POST" action="" class="auth-form">
             <div>
@@ -51,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <button type="submit" name="login">Login</button>
         </form>
+        <br>
         <p>Don't have an account? <a href="register.php">Register here</a></p>
     </div>
 </body>

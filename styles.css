@@ -298,3 +298,17 @@ footer {
     border-radius: 8px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
+
+.auth-container{
+    line-height: 1.6;
+    background-color: #4E9B66 ;
+    color: #F5F5DC;
+    padding: 20px;
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
